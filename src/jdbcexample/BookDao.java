@@ -17,8 +17,7 @@ private JdbcTemplate jdbcTemplate= ConnectionUtil.getJdbcTemplate();
 
 		String sql = "SELECT * FROM BOOK";
 
-		List<Book> books  = jdbcTemplate.query(sql,
-				new BeanPropertyRowMapper(book.class));
+		List<Book> books  = jdbcTemplate.query(sql,new BeanPropertyRowMapper(book.class));
 
 		return books;
 	}
@@ -27,7 +26,7 @@ private JdbcTemplate jdbcTemplate= ConnectionUtil.getJdbcTemplate();
 
 		String sql = "SELECT COUNT(*) FROM BOOK";
 
-		int total = jdbcTemplate.queryForInt(sql);
+		int total = jdbcTemplate.queryForList(sql);
 
 		return total;
 	}
